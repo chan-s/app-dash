@@ -1,0 +1,25 @@
+<!-- <div>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [chartType]="doughnutChartType"
+        [colors]="chartColors">
+      </canvas>
+    </div>
+  </div>
+</div> -->
+<div id="wrapper">
+  <!-- Menu lateral -->
+  <app-sidebar></app-sidebar>
+  
+  <div id="page-wrapper" class="gray-bg">
+    <app-nvabar></app-nvabar>
+    <div class="wrapper wrapper-content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+  <app-rightsidebar></app-rightsidebar>
+</div>

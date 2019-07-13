@@ -1,0 +1,44 @@
+<div class="row mb-3 border-bottom white-bg dashboard-header">
+  <div class="col-md-3">
+    <h2>Bienvenido</h2>
+    <!-- <small>You have 42 messages and 6 notifications.</small> -->
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Seleccionar Tipo de busqueda</label>
+      <select class="form-control" (change)="onChangeCaracter($event.target.value)">
+        <option value="1">Clientes</option>
+        <option value="2">Productos</option>
+        <option value="3">Categorias</option>
+        <option value="4">Empleados</option>
+      </select>
+    </div>
+
+    <ul class="list-group clear-list m-t">
+      <li class="list-group-item fist-item" *ngFor="let val of info; let i = index" (click)="identificar(val.mes)">
+        <span class="float-right">{{val.ventas}}</span>
+        <span class="label label-primary">{{ i + 1 }}</span> {{val.mes}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="statistic-box">
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
+            [colors]="chartColors">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-12 mt-5">
+    <canvas baseChart [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"></canvas>
+  </div>
+</div>
+
